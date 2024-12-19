@@ -38,7 +38,7 @@ This website is built with the following technologies:
 
 ## 📸 Screenshots
 
-![Website Screenshot](https://imgur.com/a/0t2Fsni)
+![Website Screenshot](https://i.imgur.com/NiRorRu.png)
 
 ## 💬 Get in Touch
 
