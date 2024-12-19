@@ -1,4 +1,9 @@
 $(document).ready(function(){
+    // Existing scripts ...
+
+    // Set the current year dynamically in the footer
+    $('#current-year').text(new Date().getFullYear());
+
     $(window).scroll(function(){
         // sticky navbar on scroll script
         if(this.scrollY > 20){
@@ -69,6 +74,7 @@ $(document).ready(function(){
             }
         }
     });
+
 });
 
 // By Sukhad
