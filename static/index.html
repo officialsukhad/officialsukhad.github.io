@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Files in /static</title>
+  <title>Static Files</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -27,48 +26,15 @@
     a:hover {
       text-decoration: underline;
     }
-    .unavailable {
-      color: #f00; /* Red color for unavailable files */
-    }
   </style>
 </head>
 <body>
   <h1>Files in /static</h1>
-  <ul id="file-list"></ul>
-
-  <script>
-    // Function to check if a file exists
-    function fileExists(url) {
-      return fetch(url, { method: 'HEAD' })
-        .then(response => response.ok)
-        .catch(() => false); // Return false if fetch fails
-    }
-
-    // Fetch the files list from the JSON
-    fetch('static/files.json')  // Assuming your JSON file is stored at /static/files.json
-      .then(response => response.json())
-      .then(data => {
-        const fileList = document.getElementById('file-list');
-        data.files.forEach(async (file) => {
-          const fileUrl = `static/${file}`;
-          const exists = await fileExists(fileUrl);
-
-          const listItem = document.createElement('li');
-          const fileLink = document.createElement('a');
-          fileLink.href = exists ? fileUrl : '#';
-          fileLink.textContent = exists ? file : `${file} (File not available)`;
-
-          if (!exists) {
-            fileLink.classList.add('unavailable');
-          }
-
-          listItem.appendChild(fileLink);
-          fileList.appendChild(listItem);
-        });
-      })
-      .catch(error => {
-        console.error('Error loading the files:', error);
-      });
-  </script>
+  <ul>
+    <li><a href="mukbang.mp4">mukbang.mp4</a></li>
+    <li><a href="kulosa.mp4">kulosa.mp4</a></li>
+    <li><a href="static.txt">static.txt</a></li>
+    <!-- Add more links here as you upload files -->
+  </ul>
 </body>
 </html>
