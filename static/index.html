@@ -27,6 +27,9 @@
     a:hover {
       text-decoration: underline;
     }
+    .unavailable {
+      color: #f00; /* Red color for unavailable files */
+    }
   </style>
 </head>
 <body>
@@ -34,16 +37,31 @@
   <ul id="file-list"></ul>
 
   <script>
+    // Function to check if a file exists
+    function fileExists(url) {
+      return fetch(url, { method: 'HEAD' })
+        .then(response => response.ok)
+        .catch(() => false); // Return false if fetch fails
+    }
+
     // Fetch the files list from the JSON
     fetch('static/files.json')  // Assuming your JSON file is stored at /static/files.json
       .then(response => response.json())
       .then(data => {
         const fileList = document.getElementById('file-list');
-        data.files.forEach(file => {
+        data.files.forEach(async (file) => {
+          const fileUrl = `static/${file}`;
+          const exists = await fileExists(fileUrl);
+
           const listItem = document.createElement('li');
           const fileLink = document.createElement('a');
-          fileLink.href = `static/${file}`;
-          fileLink.textContent = file;
+          fileLink.href = exists ? fileUrl : '#';
+          fileLink.textContent = exists ? file : `${file} (File not available)`;
+
+          if (!exists) {
+            fileLink.classList.add('unavailable');
+          }
+
           listItem.appendChild(fileLink);
           fileList.appendChild(listItem);
         });
