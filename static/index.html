@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Static Files</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Files in /static</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -30,12 +31,26 @@
 </head>
 <body>
   <h1>Files in /static</h1>
-  <ul>
-    <li><a href="mukbang.mp4">mukbang.mp4</a></li>
-    <li><a href="static.txt">static.txt</a></li>
-<!--     <li><a href="mukbang.mp4">mukbang.mp4</a></li> -->
-<!--     <li><a href="mukbang.mp4">mukbang.mp4</a></li> -->
-    <!-- Add more links here as you upload files -->
-  </ul>
+  <ul id="file-list"></ul>
+
+  <script>
+    // Fetch the files list from the JSON
+    fetch('static/files.json')  // Assuming your JSON file is stored at /static/files.json
+      .then(response => response.json())
+      .then(data => {
+        const fileList = document.getElementById('file-list');
+        data.files.forEach(file => {
+          const listItem = document.createElement('li');
+          const fileLink = document.createElement('a');
+          fileLink.href = `static/${file}`;
+          fileLink.textContent = file;
+          listItem.appendChild(fileLink);
+          fileList.appendChild(listItem);
+        });
+      })
+      .catch(error => {
+        console.error('Error loading the files:', error);
+      });
+  </script>
 </body>
 </html>
