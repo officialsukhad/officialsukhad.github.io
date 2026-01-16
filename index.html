@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sukhad | Under Construction</title>
+  <link rel="icon" type="image/png" href="favicon.png"> 
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #1e1e1e;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: white;
+      text-align: center;
+    }
+    .container {
+      max-width: 650px;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 15px;
+    }
+    h1 span {
+      color: #e63946; 
+    }
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      color: #ccc;
+    }
+    a {
+      color: #e63946;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .loader {
+      border: 6px solid rgba(255,255,255,0.2);
+      border-top: 6px solid #e63946;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      margin: 20px auto;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      100% { transform: rotate(360deg); }
+    }
+    .contact {
+      margin-top: 20px;
+      font-size: 1rem;
+      color: #aaa;
+    }
+    .social {
+      margin-top: 10px;
+      font-size: 1rem;
+    }
+    .social a {
+      margin: 0 10px;
+      color: #e63946;
+      text-decoration: none;
+    }
+    footer {
+      margin-top: 30px;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+
+    
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+      p, .contact {
+        font-size: 0.95rem;
+      }
+      .loader {
+        width: 45px;
+        height: 45px;
+        border-width: 5px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🚧 <span>Under Construction</span> 🚧</h1>
+    <p>We’re working hard to bring something awesome here.<br>Stay tuned!</p>
+    <div class="loader"></div>
+    <div class="contact">
+      📧 For queries, reach out at <a href="mailto:me@sukhad.online">me@sukhad.online</a>
+    </div>
+    <div class="social">
+      🌐 Connect with me:
+      <a href="https://github.com/officialsukhad" target="_blank">GitHub</a> |
+      <a href="https://www.youtube.com/@darkchocochip" target="_blank">Youtube</a> |
+      <a href="https://www.linkedin.com/in/sukhadsahay/" target="_blank">LinkedIn</a>
+    </div>
+    <footer>
+      Created By Sukhad | ▪︎ 2017–<span id="year"></span> ▪︎ All Rights Reserved.
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
