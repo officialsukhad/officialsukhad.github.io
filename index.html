@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Primary SEO -->
+
+  <title>Sukhad | Portfolio</title>
+  <meta name="description"
+    content="Portfolio of Sukhad Sahay — BTech Student, Developer, Linux & Infrastructure Enthusiast. Building systems, servers, and web applications." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.sukhad.online/" />
+
+  <!-- Open Graph (Discord / WhatsApp / LinkedIn preview) -->
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Sukhad Sahay | Developer Portfolio" />
+  <meta property="og:description"
+    content="BTech student building systems from the ground up — one terminal command at a time." />
+  <meta property="og:url" content="https://www.sukhad.online/" />
+  <meta property="og:image" content="https://www.sukhad.online/favicon.png" />
+
+  <!-- Twitter Preview -->
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Sukhad Sahay | Developer Portfolio" />
+  <meta name="twitter:description"
+    content="BTech student building systems from the ground up — one terminal command at a time." />
+
+  <!-- Theme color for mobile browsers -->
+
+  <meta name="theme-color" content="#00ff9c" />
+
+  <!-- Apple -->
+
+  <link rel="apple-touch-icon" sizes="57x57" href="/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-icon-180x180.png">
+
+  <!-- Android -->
+
+  <link rel="icon" type="image/png" sizes="192x192" href="/icons/android-icon-192x192.png">
+
+  <!-- Favicons -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+
+  <!-- PWA Manifest -->
+
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- Windows tiles -->
+
+  <meta name="msapplication-TileColor" content="#00ff9c">
+  <meta name="msapplication-TileImage" content="/icons/ms-icon-144x144.png">
+
+  <!-- Browser config -->
+
+  <meta name="msapplication-config" content="/browserconfig.xml">
+
+
+  <!-- Google Fonts -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Styles -->
+
+  <link rel="stylesheet" href="styles.css" />
+  <meta name="author" content="Sukhad Sahay">
+</head>
+
+
+<body>
+
+  <!-- ============================================================
+       CANVAS BACKGROUND — animated glowing grid + particles
+  ============================================================ -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- ============================================================
+       CURSOR (custom neon dot)
+  ============================================================ -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-trail" id="cursor-trail"></div>
+
+  <!-- ============================================================
+       NAVBAR
+  ============================================================ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <!-- Logo / Name -->
+      <a href="#home" class="nav-logo">
+        <span class="logo-bracket">[</span>
+        <span class="logo-name">SUKHAD</span>
+        <span class="logo-bracket">]</span>
+      </a>
+
+      <!-- Desktop Links -->
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home" class="nav-link" data-section="home">HOME</a></li>
+        <li><a href="#about" class="nav-link" data-section="about">ABOUT</a></li>
+        <li><a href="#skills" class="nav-link" data-section="skills">SKILLS</a></li>
+        <li><a href="#projects" class="nav-link" data-section="projects">PROJECTS</a></li>
+        <li><a href="#contact" class="nav-link" data-section="contact">CONTACT</a></li>
+      </ul>
+
+      <!-- Hamburger (mobile) -->
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile menu overlay -->
+  <div class="mobile-menu" id="mobile-menu">
+    <ul>
+      <li><a href="#home" class="mobile-link">HOME</a></li>
+      <li><a href="#about" class="mobile-link">ABOUT</a></li>
+      <li><a href="#skills" class="mobile-link">SKILLS</a></li>
+      <li><a href="#projects" class="mobile-link">PROJECTS</a></li>
+      <li><a href="#contact" class="mobile-link">CONTACT</a></li>
+    </ul>
+  </div>
+
+  <!-- ============================================================
+       HERO SECTION
+  ============================================================ -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+
+      <!-- Status badge -->
+      <div class="status-badge reveal">
+        <span class="status-dot"></span>
+        <span>Available for opportunities</span>
+      </div>
+
+      <!-- Glitch name heading -->
+      <h1 class="hero-title reveal" data-text="Hi, I'm Sukhad Sahay">
+        Hi, I'm <span class="accent glitch" data-text="Sukhad Sahay">Sukhad Sahay</span>
+      </h1>
+
+      <!-- Typing subtitle -->
+      <p class="hero-subtitle reveal">
+        <span class="typed-prefix">~ </span>
+        <span id="typed-text" class="typed-text"></span>
+        <span class="cursor-blink">|</span>
+      </p>
+
+      <!-- Hero description -->
+      <p class="hero-desc reveal">
+        BTech student building systems from the ground up —
+        one terminal command at a time.
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="hero-buttons reveal">
+        <a href="#projects" class="btn btn-primary">
+          <span class="btn-text">View Projects</span>
+          <span class="btn-glow"></span>
+        </a>
+        <a href="#contact" class="btn btn-secondary">
+          <span class="btn-text">Contact Me</span>
+        </a>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="scroll-indicator reveal">
+        <span>SCROLL</span>
+        <div class="scroll-line">
+          <div class="scroll-dot"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero side decoration -->
+    <div class="hero-deco">
+      <div class="deco-ring ring-1"></div>
+      <div class="deco-ring ring-2"></div>
+      <div class="deco-ring ring-3"></div>
+      <div class="deco-avatar">
+        <div class="avatar-hex">
+          <div class="avatar-inner">
+            <span class="avatar-initials">SS</span>
+            <div class="avatar-scan"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ABOUT SECTION
+  ============================================================ -->
+  <section id="about" class="about">
+    <div class="section-container">
+
+      <div class="section-header reveal">
+        <span class="section-tag">// 01 — ABOUT</span>
+        <h2 class="section-title">Who I Am</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="about-grid">
+        <!-- Text content -->
+        <div class="about-text reveal">
+          <p class="about-intro">
+            I'm a <span class="accent">BTech</span> student in my first year,
+            passionate about the intersection of systems, infrastructure, and software development.
+          </p>
+          <p>
+            My journey started with a curiosity for how things work under the hood —
+            from the Linux kernel to Minecraft server clusters. I enjoy building things
+            that are functional, fast, and scalable.
+          </p>
+          <p>
+            When I'm not writing code, I'm exploring server configurations, experimenting
+            with networking setups, or contributing to open-source tools.
+          </p>
+
+          <div class="about-stats">
+            <div class="stat-item">
+              <span class="stat-num accent">4+</span>
+              <span class="stat-label">Projects Completed</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num accent">1st</span>
+              <span class="stat-label">Year BTech</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num accent">∞</span>
+              <span class="stat-label">Curiosity</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Terminal card -->
+        <div class="terminal-card reveal">
+          <div class="terminal-header">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <span class="terminal-title">sukhad@portfolio:~$</span>
+          </div>
+          <div class="terminal-body">
+            <div class="terminal-line">
+              <span class="t-cmd">cat</span> <span class="t-arg">profile.json</span>
+            </div>
+            <div class="terminal-output">
+              <span class="t-brace">{</span><br />
+              &nbsp;&nbsp;<span class="t-key">"name"</span>: <span class="t-val">"Sukhad Sahay"</span>,<br />
+              &nbsp;&nbsp;<span class="t-key">"degree"</span>: <span class="t-val">"BTech"</span>,<br />
+              &nbsp;&nbsp;<span class="t-key">"year"</span>: <span class="t-val">"1st Year"</span>,<br />
+              &nbsp;&nbsp;<span class="t-key">"os"</span>: <span class="t-val">"Linux / I use Arch BTW"</span>,<br />
+              &nbsp;&nbsp;<span class="t-key">"interests"</span>: [<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;<span class="t-val">"Programming"</span>,<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;<span class="t-val">"Linux & Servers"</span>,<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;<span class="t-val">"Minecraft Infra"</span>,<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;<span class="t-val">"Web Development"</span><br />
+              &nbsp;&nbsp;],<br />
+              &nbsp;&nbsp;<span class="t-key">"status"</span>: <span class="t-green">"open_to_work"</span><br />
+              <span class="t-brace">}</span>
+            </div>
+            <div class="terminal-line">
+              <span class="t-cmd">_</span><span class="t-cursor-blink">█</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SKILLS SECTION
+  ============================================================ -->
+  <section id="skills" class="skills">
+    <div class="section-container">
+
+      <div class="section-header reveal">
+        <span class="section-tag">// 02 — SKILLS</span>
+        <h2 class="section-title">Tech Stack</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="skills-grid">
+
+        <!-- Skill Card: C++ -->
+        <div class="skill-card reveal" style="--delay: 0s">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M10.5 15.97L10.91 18.41C10.65 18.55 10.23 18.68 9.67 18.8C9.1 18.93 8.43 19 7.66 19C5.45 18.96 3.72 18.3 2.46 17.05C1.2 15.8 0.58 14.17 0.58 12.16C0.64 9.28 1.53 7.09 3.23 5.58C4.93 4.07 7 3.31 9.43 3.31C10.17 3.31 10.8 3.4 11.32 3.55L10.7 6.08L10.03 5.92C9.69 5.87 9.33 5.83 8.96 5.83C7.41 5.87 6.17 6.36 5.22 7.32C4.27 8.27 3.78 9.69 3.72 11.6C3.72 13.31 4.22 14.63 5.22 15.56C6.22 16.5 7.38 16.97 8.72 16.97C9.37 16.97 9.97 16.88 10.5 15.97Z"
+                fill="currentColor" />
+              <path d="M15.73 11.5H13.5V9.27H15.73V7.04H17.96V9.27H20.19V11.5H17.96V13.73H15.73V11.5Z"
+                fill="currentColor" />
+              <path d="M21.73 11.5H19.5V9.27H21.73V7.04H23.96V9.27H23.96V11.5H21.73V13.73H21.73V11.5Z"
+                fill="currentColor" />
+            </svg>
+          </div>
+          <h3 class="skill-name">C++</h3>
+          <p class="skill-desc">Systems programming, algorithms, OOP fundamentals and memory management.</p>
+          <div class="skill-bar">
+            <div class="skill-fill" style="--w: 75%"></div>
+          </div>
+          <span class="skill-level">Intermediate</span>
+        </div>
+
+        <!-- Skill Card: Python -->
+        <div class="skill-card reveal" style="--delay: 0.1s">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M11.914 0C5.82 0 6.2 2.656 6.2 2.656L6.207 5.4h5.82v.816H3.887S0 5.771 0 11.933c0 6.163 3.402 5.942 3.402 5.942h2.031v-2.859s-.109-3.402 3.346-3.402h5.765s3.238.052 3.238-3.13V3.13S18.304 0 11.914 0zm-3.2 1.812a1.04 1.04 0 1 1 0 2.08 1.04 1.04 0 0 1 0-2.08z"
+                fill="currentColor" />
+              <path
+                d="M12.086 24c6.094 0 5.714-2.656 5.714-2.656l-.007-2.744h-5.82v-.816h8.14S24 18.229 24 12.067c0-6.163-3.402-5.942-3.402-5.942h-2.031v2.859s.109 3.402-3.346 3.402H9.456s-3.238-.052-3.238 3.13v5.354S5.696 24 12.086 24zm3.2-1.812a1.04 1.04 0 1 1 0-2.08 1.04 1.04 0 0 1 0 2.08z"
+                fill="currentColor" />
+            </svg>
+          </div>
+          <h3 class="skill-name">Python</h3>
+          <p class="skill-desc">Scripting, automation, bots, web scraping and general-purpose development.</p>
+          <div class="skill-bar">
+            <div class="skill-fill" style="--w: 80%"></div>
+          </div>
+          <span class="skill-level">Proficient</span>
+        </div>
+
+        <!-- Skill Card: Linux -->
+        <div class="skill-card reveal" style="--delay: 0.2s">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M12.003 2.001a9.705 9.705 0 0 0-9.692 9.594 9.741 9.741 0 0 0 .521 3.244 9.704 9.704 0 0 0 9.171 6.551 9.704 9.704 0 0 0 9.171-6.551 9.742 9.742 0 0 0 .521-3.244 9.705 9.705 0 0 0-9.692-9.594zm2.285 12.51l-1.441.99v1.396a.643.643 0 0 1-1.285 0v-1.72c0-.21.103-.406.275-.525l1.72-1.183a.643.643 0 0 1 .731 1.062v-.02zm-4.93-4.06a1.285 1.285 0 1 1 2.57 0 1.285 1.285 0 0 1-2.57 0zm5.145 0a1.285 1.285 0 1 1 2.57 0 1.285 1.285 0 0 1-2.57 0z"
+                fill="currentColor" />
+            </svg>
+          </div>
+          <h3 class="skill-name">Linux</h3>
+          <p class="skill-desc">Daily driver OS — shell scripting, system admin, process management and security.</p>
+          <div class="skill-bar">
+            <div class="skill-fill" style="--w: 85%"></div>
+          </div>
+          <span class="skill-level">Advanced</span>
+        </div>
+
+        <!-- Skill Card: Web Dev -->
+        <div class="skill-card reveal" style="--delay: 0.3s">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M4.136 3.012A2 2 0 0 0 2 5v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H4a2 2 0 0 0-.864.012zM4 7h16v12H4V7zm2 2v2h2V9H6zm4 0v2h2V9h-2zm4 0v2h2V9h-2zM6 13v2h4v-2H6zm6 0v2h6v-2h-6z"
+                fill="currentColor" />
+            </svg>
+          </div>
+          <h3 class="skill-name">Web Development</h3>
+          <p class="skill-desc">HTML, CSS, JavaScript — crafting responsive and interactive web experiences.</p>
+          <div class="skill-bar">
+            <div class="skill-fill" style="--w: 70%"></div>
+          </div>
+          <span class="skill-level">Intermediate</span>
+        </div>
+
+        <!-- Skill Card: Server Management -->
+        <div class="skill-card reveal" style="--delay: 0.4s">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M4 2h16a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zm0 7h16a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1zm0 7h16a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1zm13 2a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm0-7a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm0-7a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"
+                fill="currentColor" />
+            </svg>
+          </div>
+          <h3 class="skill-name">Server Management</h3>
+          <p class="skill-desc">Deploying and managing dedicated servers, reverse proxies, and containerized apps.</p>
+          <div class="skill-bar">
+            <div class="skill-fill" style="--w: 78%"></div>
+          </div>
+          <span class="skill-level">Proficient</span>
+        </div>
+
+        <!-- Skill Card: Networking -->
+        <div class="skill-card reveal" style="--delay: 0.5s">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-4h2v2h-2v-2zm0-2h2V7h-2v7z"
+                fill="currentColor" />
+            </svg>
+          </div>
+          <h3 class="skill-name">Networking Basics</h3>
+          <p class="skill-desc">TCP/IP, DNS, firewalls, VPN setup, and network topology fundamentals.</p>
+          <div class="skill-bar">
+            <div class="skill-fill" style="--w: 65%"></div>
+          </div>
+          <span class="skill-level">Learning</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PROJECTS SECTION
+  ============================================================ -->
+  <section id="projects" class="projects">
+    <div class="section-container">
+
+      <div class="section-header reveal">
+        <span class="section-tag">// 03 — PROJECTS</span>
+        <h2 class="section-title">What I've Built</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- Project 1 -->
+        <div class="project-card reveal" style="--delay: 0s">
+          <div class="project-top">
+            <div class="project-num">01</div>
+            <div class="project-links">
+              <a href="#" class="proj-link" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z" />
+                </svg>
+              </a>
+              <a href="#" class="proj-link" aria-label="External Link">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-title">Minecraft Server Infrastructure</h3>
+          <p class="project-desc">
+            Multi-node Minecraft cluster with custom BungeeCord proxy, automated backups,
+            and monitoring dashboards. Handles 100+ concurrent players.
+          </p>
+          <div class="project-tags">
+            <span class="tag">Java</span>
+            <span class="tag">Linux</span>
+            <span class="tag">BungeeCord</span>
+            <span class="tag">Bash</span>
+          </div>
+          <div class="card-glow"></div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card reveal" style="--delay: 0.1s">
+          <div class="project-top">
+            <div class="project-num">02</div>
+            <div class="project-links">
+              <a href="#" class="proj-link" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z" />
+                </svg>
+              </a>
+              <a href="#" class="proj-link" aria-label="External Link">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-title">Video Downloader Web App</h3>
+          <p class="project-desc">
+            Full-stack web application for downloading videos from multiple platforms.
+            Features format selection, queue management, and real-time progress tracking.
+          </p>
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">Flask</span>
+            <span class="tag">yt-dlp</span>
+            <span class="tag">JavaScript</span>
+          </div>
+          <div class="card-glow"></div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card reveal" style="--delay: 0.2s">
+          <div class="project-top">
+            <div class="project-num">03</div>
+            <div class="project-links">
+              <a href="#" class="proj-link" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z" />
+                </svg>
+              </a>
+              <a href="#" class="proj-link" aria-label="External Link">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-title">Linux Server Automation</h3>
+          <p class="project-desc">
+            Collection of bash scripts for automated server provisioning, health checks,
+            log rotation, and deployment pipelines on bare-metal and VPS environments.
+          </p>
+          <div class="project-tags">
+            <span class="tag">Bash</span>
+            <span class="tag">Cron</span>
+            <span class="tag">Nginx</span>
+            <span class="tag">SSH</span>
+          </div>
+          <div class="card-glow"></div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="project-card reveal" style="--delay: 0.3s">
+          <div class="project-top">
+            <div class="project-num">04</div>
+            <div class="project-links">
+              <a href="#" class="proj-link" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z" />
+                </svg>
+              </a>
+              <a href="#" class="proj-link" aria-label="External Link">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-title">Discord Bot System</h3>
+          <p class="project-desc">
+            Modular Discord bot with custom commands, server management, moderation tools,
+            and integration with external APIs for music, weather, and notifications.
+          </p>
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">discord.py</span>
+            <span class="tag">SQLite</span>
+            <span class="tag">REST API</span>
+          </div>
+          <div class="card-glow"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CONTACT SECTION
+  ============================================================ -->
+  <section id="contact" class="contact">
+    <div class="section-container">
+
+      <div class="section-header reveal">
+        <span class="section-tag">// 04 — CONTACT</span>
+        <h2 class="section-title">Let's Connect</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="contact-grid">
+
+        <!-- Left: Info -->
+        <div class="contact-info reveal">
+          <p class="contact-desc">
+            Open to internships, collaborations, and interesting projects.
+            Let's build something cool together.
+          </p>
+
+          <div class="contact-links">
+            <a href="mailto:your@email.com" class="contact-link">
+              <div class="contact-link-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                </svg>
+              </div>
+              <div>
+                <span class="link-label">Email</span>
+                <span class="link-val">me@sukhad.online</span>
+              </div>
+            </a>
+
+            <a href="https://github.com/officialsukhad" target="_blank" class="contact-link">
+              <div class="contact-link-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z" />
+                </svg>
+              </div>
+              <div>
+                <span class="link-label">GitHub</span>
+                <span class="link-val">github.com/officialsukhad</span>
+              </div>
+            </a>
+
+            <a href="https://linkedin.com/in/sukhadsahay" target="_blank" class="contact-link">
+              <div class="contact-link-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77Z" />
+                </svg>
+              </div>
+              <div>
+                <span class="link-label">LinkedIn</span>
+                <span class="link-val">linkedin.com/in/sukhadsahay</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Form -->
+        <div class="contact-form-wrapper reveal">
+          <div class="form-header">
+            <span class="form-tag">POST /api/message</span>
+          </div>
+          <div class="contact-form" id="contact-form">
+            <div class="form-group">
+              <label for="name" class="form-label">NAME</label>
+              <input type="text" id="name" class="form-input" placeholder="Your name" autocomplete="off" />
+            </div>
+            <div class="form-group">
+              <label for="email" class="form-label">EMAIL</label>
+              <input type="email" id="email" class="form-input" placeholder="your@email.com" autocomplete="off" />
+            </div>
+            <div class="form-group">
+              <label for="message" class="form-label">MESSAGE</label>
+              <textarea id="message" class="form-input form-textarea" placeholder="What's on your mind?"
+                rows="5"></textarea>
+            </div>
+            <button class="btn btn-primary btn-submit" id="submit-btn">
+              <span class="btn-text">Send Message</span>
+              <span class="btn-glow"></span>
+            </button>
+            <div class="form-success" id="form-success">
+              <span class="accent">✓</span> Message sent! I'll get back to you soon.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer">
+    <div class="footer-container">
+      <span class="footer-logo">
+        <span class="logo-bracket">[</span>Sukhad<span class="logo-bracket">]</span>
+      </span>
+      <p class="footer-copy">© 2026 Sukhad Sahay — Built with passion &amp; caffeine</p>
+      <div class="footer-links">
+        <a href="https://github.com/officialsukhad" target="_blank">GitHub</a>
+        <a href="https://linkedin.com/in/sukhadsahay" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+    <div class="footer-line"></div>
+  </footer>
+
+  <!-- Main Script -->
+  <script src="script.js"></script>
+</body>
+
+</html>
