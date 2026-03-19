@@ -436,3 +436,90 @@ function initSmoothScroll() {
     });
   });
 }
+/* ─── DEVTOOLS PROTECTION ───────────────────────── */
+
+(function () {
+  // Disable right click
+  document.addEventListener("contextmenu", function (e) {
+    e.preventDefault();
+    showWarning();
+  });
+
+  // Disable key shortcuts
+  document.addEventListener("keydown", function (e) {
+    if (
+      e.key === "F12" ||
+      (e.ctrlKey && e.shiftKey && ["I", "J", "C"].includes(e.key)) ||
+      (e.ctrlKey && e.key === "U")
+    ) {
+      e.preventDefault();
+      showWarning();
+    }
+  });
+
+  // Detect DevTools open
+  let devtoolsOpen = false;
+
+  setInterval(function () {
+    const widthThreshold = window.outerWidth - window.innerWidth > 160;
+    const heightThreshold = window.outerHeight - window.innerHeight > 160;
+
+    if (widthThreshold || heightThreshold) {
+      if (!devtoolsOpen) {
+        devtoolsOpen = true;
+        showWarning();
+      }
+    } else {
+      devtoolsOpen = false;
+    }
+  }, 1000);
+
+  // Warning UI
+  function showWarning() {
+    if (document.getElementById("devtools-warning")) return;
+
+    const div = document.createElement("div");
+    div.id = "devtools-warning";
+
+    div.innerHTML = `
+    <div style="
+      position: fixed;
+      top:0;left:0;width:100%;height:100%;
+      background:#0a0000;
+      color:#ff4d4d;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-direction:column;
+      font-family: monospace;
+      z-index:999999;
+      text-align:center;
+      padding:20px;
+    ">
+      <h1 style="font-size:2.5rem; margin-bottom:20px;">
+        ⚠️ UNAUTHORIZED ACCESS DETECTED
+      </h1>
+
+      <p style="font-size:1.1rem; max-width:500px; line-height:1.6;">
+        DevTools inspection attempt has been detected.
+        <br><br>
+        This action is monitored and strictly prohibited.
+      </p>
+
+      <p style="
+        margin-top:30px;
+        font-size:0.9rem;
+        color:#ff9999;
+        opacity:0.8;
+      ">
+        Refresh the page immediately to continue browsing.
+      </p>
+    </div>
+  `;
+
+    document.body.appendChild(div);
+
+    // Lock scroll completely
+    document.body.style.overflow = "hidden";
+  }
+})();
