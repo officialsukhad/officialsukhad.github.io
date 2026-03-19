@@ -449,8 +449,8 @@ function initSmoothScroll() {
   document.addEventListener("keydown", function (e) {
     if (
       e.key === "F12" ||
-      (e.ctrlKey && e.shiftKey && ["I", "J", "C"].includes(e.key)) ||
-      (e.ctrlKey && e.key === "U")
+      (e.ctrlKey && e.shiftKey && ["i", "j", "c"].includes(e.key.toLowerCase())) ||
+      (e.ctrlKey && (e.key === "u" || e.key === "U"))
     ) {
       e.preventDefault();
       showWarning();
